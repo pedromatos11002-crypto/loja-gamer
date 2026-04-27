@@ -26,9 +26,9 @@ formLogin.addEventListener("submit", function (e) {
     return;
   }
 
-sessionStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
-localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
-localStorage.setItem("logado", "true");s
+  sessionStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
+  localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
+  localStorage.setItem("logado", "true");
 
   mensagemLogin.textContent = "Login realizado com sucesso!";
 
