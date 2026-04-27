@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+  <div class="login-box">
+    <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo da Loja Gamer" class="logo-login">
+
+    <h1>Cyber Pixel</h1>
+    <h2>Entrar</h2>
+
+    <form id="formLogin">
+      <input type="text" id="loginUsuario" placeholder="Nome, e-mail ou telefone" required>
+      <input type="password" id="senhaLogin" placeholder="Digite sua senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <button onclick="window.location.href='cadastro.html'" class="btn-criar">
+      Criar Conta
+    </button>
+
+    <p id="mensagemLogin" class="mensagem"></p>
+  </div>
+
+  <script>
+    const formLogin = document.getElementById("formLogin");
+    const mensagemLogin = document.getElementById("mensagemLogin");
+
+    formLogin.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const login = document.getElementById("loginUsuario").value.trim();
+      const senha = document.getElementById("senhaLogin").value;
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      const usuarioEncontrado = usuarios.find(usuario =>
+        (usuario.email === login ||
+         usuario.nome === login ||
+         usuario.telefone === login) &&
+         usuario.senha === senha
+      );
+
+      if (usuarioEncontrado) {
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
+        localStorage.setItem("logado", "true");
+
+        mensagemLogin.textContent = "Login realizado com sucesso!";
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1000);
+
+      } else {
+        mensagemLogin.textContent = "Nome, e-mail, telefone ou senha incorretos.";
+      }
+    });
+  </script>
+
+</body>
+</html>

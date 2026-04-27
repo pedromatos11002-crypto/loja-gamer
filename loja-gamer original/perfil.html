@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo-area">
+    <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo da Loja Gamer">
+    <h1>Cyber Pixel</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="games.html">Jogos</a>
+    <a href="funko.html">Funko Pop</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="perfil.html" class="menu-ativo">Perfil</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="titulo-secao">
+    <h2>Meu Perfil</h2>
+    <p>Veja suas informações e acompanhe seus pedidos</p>
+  </section>
+
+  <section class="produtos-grid">
+
+    <div class="card-produto">
+      <h3>Foto de Perfil</h3>
+      <img id="fotoPreview" src="https://via.placeholder.com/180" alt="Foto de Perfil">
+      <input type="file" id="fotoInput" accept="image/*">
+    </div>
+
+    <div class="card-produto">
+      <h3>Informações da Conta</h3>
+
+      <p>Nome</p>
+      <input type="text" id="nomeUsuario" placeholder="Nome completo">
+
+      <p>E-mail</p>
+      <input type="email" id="emailUsuario" placeholder="E-mail" disabled>
+
+      <p>Telefone</p>
+      <input type="text" id="telefoneUsuario" placeholder="Telefone">
+
+      <button id="salvarPerfil">Salvar Perfil</button>
+      <p id="mensagemPerfil" class="mensagem"></p>
+    </div>
+
+    <div class="card-produto">
+      <h3>Endereço de Entrega</h3>
+
+      <input type="text" id="cepUsuario" placeholder="CEP">
+      <input type="text" id="ruaUsuario" placeholder="Rua">
+      <input type="text" id="numeroUsuario" placeholder="Número">
+      <input type="text" id="bairroUsuario" placeholder="Bairro">
+      <input type="text" id="cidadeUsuario" placeholder="Cidade">
+      <input type="text" id="estadoUsuario" placeholder="Estado">
+
+      <button id="salvarEndereco">Salvar Endereço</button>
+      <p id="mensagemEndereco" class="mensagem"></p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <p>&copy; 2026 Loja Gamer - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const fotoInput = document.getElementById("fotoInput");
+const fotoPreview = document.getElementById("fotoPreview");
+const nomeUsuario = document.getElementById("nomeUsuario");
+const emailUsuario = document.getElementById("emailUsuario");
+const telefoneUsuario = document.getElementById("telefoneUsuario");
+const salvarPerfil = document.getElementById("salvarPerfil");
+const mensagemPerfil = document.getElementById("mensagemPerfil");
+
+const cepUsuario = document.getElementById("cepUsuario");
+const ruaUsuario = document.getElementById("ruaUsuario");
+const numeroUsuario = document.getElementById("numeroUsuario");
+const bairroUsuario = document.getElementById("bairroUsuario");
+const cidadeUsuario = document.getElementById("cidadeUsuario");
+const estadoUsuario = document.getElementById("estadoUsuario");
+const salvarEndereco = document.getElementById("salvarEndereco");
+const mensagemEndereco = document.getElementById("mensagemEndereco");
+
+let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+let logado = localStorage.getItem("logado");
+
+if (logado !== "true" || !usuarioLogado) {
+  window.location.href = "login.html";
+}
+
+window.addEventListener("load", function () {
+  nomeUsuario.value = usuarioLogado.nome || "";
+  emailUsuario.value = usuarioLogado.email || "";
+  telefoneUsuario.value = usuarioLogado.telefone || "";
+
+  if (usuarioLogado.foto) {
+    fotoPreview.src = usuarioLogado.foto;
+  }
+});
+
+fotoInput.addEventListener("change", function () {
+  const arquivo = this.files[0];
+
+  if (arquivo) {
+    const leitor = new FileReader();
+
+    leitor.onload = function (e) {
+      fotoPreview.src = e.target.result;
+      usuarioLogado.foto = e.target.result;
+      salvarUsuario();
+    };
+
+    leitor.readAsDataURL(arquivo);
+  }
+});
+
+salvarPerfil.addEventListener("click", function () {
+  usuarioLogado.nome = nomeUsuario.value;
+  usuarioLogado.telefone = telefoneUsuario.value;
+
+  salvarUsuario();
+  mensagemPerfil.textContent = "Perfil salvo com sucesso!";
+});
+
+/* BUSCAR CEP AUTOMÁTICO */
+cepUsuario.addEventListener("blur", function () {
+  let cep = cepUsuario.value.replace(/\D/g, "");
+
+  if (cep.length !== 8) {
+    alert("Digite um CEP válido.");
+    return;
+  }
+
+  fetch("https://viacep.com.br/ws/" + cep + "/json/")
+    .then(response => response.json())
+    .then(dados => {
+      if (dados.erro) {
+        alert("CEP não encontrado.");
+        return;
+      }
+
+      ruaUsuario.value = dados.logradouro;
+      bairroUsuario.value = dados.bairro;
+      cidadeUsuario.value = dados.localidade;
+      estadoUsuario.value = dados.uf;
+    })
+    .catch(() => {
+      alert("Erro ao buscar CEP.");
+    });
+});
+
+salvarEndereco.addEventListener("click", function () {
+  const novoEndereco = {
+    cep: cepUsuario.value,
+    rua: ruaUsuario.value,
+    numero: numeroUsuario.value,
+    bairro: bairroUsuario.value,
+    cidade: cidadeUsuario.value,
+    estado: estadoUsuario.value
+  };
+
+  if (!usuarioLogado.enderecos) {
+    usuarioLogado.enderecos = [];
+  }
+
+  usuarioLogado.enderecos.push(novoEndereco);
+
+  salvarUsuario();
+
+  mensagemEndereco.textContent = "Endereço salvo com sucesso!";
+});
+
+function salvarUsuario() {
+  localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  usuarios = usuarios.map(usuario => {
+    if (usuario.email === usuarioLogado.email) {
+      return usuarioLogado;
+    }
+    return usuario;
+  });
+
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+}
+</script>
+
+</body>
+</html>

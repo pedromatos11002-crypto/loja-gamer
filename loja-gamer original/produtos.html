@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<script src="js/script.js"></script>
+</body>
+</html>
+
+<body>
+  <header class="topo">
+    <div class="logo-area">
+      <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo da Loja Gamer" class="logo">
+      <h1>Cyber Pixel</h1>
+    </div>
+
+    <nav>
+     <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="games.html">Jogos</a>
+      <a href="funko.html">Funko Pop</a>
+      <a href="carrinho.html" class="menu-ativo">Carrinho</a>
+      <a href="perfil.html">Perfil</a>
+      
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="titulo-secao">
+      <h2>Nossos Produtos</h2>
+      <p>Escolha seus itens favoritos e adicione ao carrinho.</p>
+    </section>
+
+    <section class="produtos-grid">
+      <div class="card-produto">
+        <img src="img/teclado_gamer-removebg-preview.png" alt="Teclado Gamer">
+        <h3>Teclado Gamer RGB</h3>
+        <p>R$ 199,90</p>
+        <button onclick="adicionarAoCarrinho('Teclado Gamer RGB', 199.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/Mouse-gamer-removebg-preview.png" alt="Mouse Gamer">
+        <h3>Mouse Gamer Pro</h3>
+        <p>R$ 99,90</p>
+        <button onclick="adicionarAoCarrinho('Mouse Gamer Pro', 129.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/Suporte-removebg-preview.png" alt="Suporte para Headset Gamer">
+        <h3>Suporte para Headset</h3>
+        <p>R$ 85,90</p>
+        <button onclick="adicionarAoCarrinho('Suposte para Headset', 85.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/distribuidor-de-informatica-fone-de-ouvido-gamer-removebg-preview.png" alt="Headset Gamer">
+        <h3>Headset Ultra Sound</h3>
+        <p>R$ 249,90</p>
+        <button onclick="adicionarAoCarrinho('Headset Ultra Sound', 249.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/Monitor-Gamer-removebg-preview.png" alt="Monitor Gamer">
+        <h3>Monitor Gamer</h3>
+        <p>R$ 1.100,00</p>
+        <button onclick="adicionarAoCarrinho('Monitor Gamer', 1100)">Adicionar ao carrinho</button>
+      </div>
+
+
+      <div class="card-produto">
+        <img src="img/Mercado_Livre-removebg-preview.png" alt="Cadeira Gamer">
+        <h3>Cadeira Gamer X</h3>
+        <p>R$ 899,90</p>
+        <button onclick="adicionarAoCarrinho('Cadeira Gamer X', 899.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/PlayStation-5-removebg-preview.png" alt="PlayStation 5">
+        <h3>PlayStation</h3>
+        <p>R$ 4.599.00</p>
+        <button onclick="adicionarAoCarrinho('PlayStation 5', 4599)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/xboxs-removebg-preview.png" alt="Xbox 360">
+        <h3>Xbox 360</h3>
+        <p>R$ 3.590,00</p>
+        <button onclick="adicionarAoCarrinho('Xbox 360', 3590)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/nitendo-removebg-preview.png" alt="nintendo switch">
+        <h3>Nintendo switch</h3>
+        <p>R$ 2.590,00</p>
+        <button onclick="adicionarAoCarrinho('nintendo switch', 2590)">Adicionar ao carrinho</button>
+      </div>
+    </section>
+
+    <p id="mensagemCarrinho" class="mensagem"></p>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2026 Loja Gamer - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

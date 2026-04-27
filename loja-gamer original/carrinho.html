@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- TOPO -->
+  <header class="topo">
+
+    <div class="logo-area">
+      <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo da Loja Gamer" class="logo">
+      <h1>Cyber Pixel</h1>
+    </div>
+
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="games.html">Jogos</a>
+      <a href="funko.html">Funko Pop</a>
+      <a href="carrinho.html" class="menu-ativo">Carrinho</a>
+      <a href="perfil.html">Perfil</a>
+    </nav>
+
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="container">
+
+    <!-- CARRINHO -->
+    <section id="carrinhoTela" class="bloco-carrinho">
+
+      <h2>🛒 Seu Carrinho</h2>
+
+      <div id="listaCarrinho" class="lista-carrinho"></div>
+
+      <div class="resumo-carrinho">
+        <h3>Total: <span id="totalCarrinho">R$ 0,00</span></h3>
+      </div>
+
+      <div class="acoes-carrinho">
+        <button class="btn-secundario" onclick="limparCarrinho()">
+          Limpar Carrinho
+        </button>
+
+        <button class="btn-principal" onclick="finalizarCompra()">
+          Finalizar Compra
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ESCOLHER ENDEREÇO -->
+    <section id="checkoutTela" class="bloco-checkout" style="display: none;">
+
+      <h2>Escolha o Endereço</h2>
+
+      <select id="endereco" class="input-endereco">
+        <option value="">Selecione um endereço</option>
+      </select>
+
+      <div class="acoes-carrinho">
+        <button class="btn-secundario" onclick="voltarParaCarrinho()">
+          Voltar
+        </button>
+
+        <button class="btn-principal" onclick="irParaPagamento()">
+          Continuar
+        </button>
+      </div>
+
+    </section>
+
+    <!-- PAGAMENTO -->
+    <section id="pagamentoTela" class="bloco-pagamento" style="display: none;">
+
+      <h2>Pagamento via PIX</h2>
+
+      <div class="qrcode-box">
+        <img src="img/QRcode.jpeg" alt="QR Code para pagamento PIX" class="img-qrcode">
+        <p>Escaneie o QR Code para concluir o pagamento.</p>
+      </div>
+
+      <div class="acoes-carrinho">
+        <button class="btn-secundario" onclick="voltarParaEndereco()">
+          Voltar
+        </button>
+
+        <button class="btn-principal" onclick="finalizarPedido()">
+          Já Paguei
+        </button>
+      </div>
+
+    </section>
+
+    <!-- PEDIDOS -->
+    <section class="pedidos-box">
+
+      <h2>Pedidos</h2>
+
+      <button class="btn-secundario" onclick="limparPedidos()">
+        Limpar Todos os Pedidos
+      </button>
+
+      <div id="listaPedidos">
+        <p class="pedido-vazio">Nenhum pedido realizado ainda.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>© 2026 Loja Gamer</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

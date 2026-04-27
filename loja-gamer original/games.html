@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogos de Console - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="logo-area">
+      <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo Loja Gamer">
+      <h1>Cyber Pixel</h1>
+    </div>
+
+    <nav>
+     <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="games.html">Jogos</a>
+      <a href="funko.html">Funko Pop</a>
+      <a href="carrinho.html" class="menu-ativo">Carrinho</a>
+      <a href="perfil.html">Perfil</a>
+      
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="titulo-secao">
+      <h2>Jogos de Console</h2>
+      <p>Escolha seus jogos favoritos para PlayStation, Xbox e Nintendo.</p>
+    </section>
+
+    <section class="produtos-grid">
+      <div class="card-produto">
+        <img src="img/Pedro_lindo-removebg-preview.png" alt="God of War Ragnarok">
+        <h3>God of War Ragnarök</h3>
+        <p>Aventura épica cheia de ação e mitologia.</p>
+        <span>R$ 299,90</span>
+        <button onclick="adicionarAoCarrinho('God of War Ragnarök', 299.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/Halo-removebg-preview.png" alt="Jogo Xbox">
+        <h3>Halo Infinite</h3>
+        <p>Batalhas intensas e modo campanha emocionante.</p>
+        <span>R$ 249,90</span>
+        <button onclick="adicionarAoCarrinho('Halo Infinite', 249.90)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/Sally_face_-_console-removebg-preview.png" alt="Jogo Nintendo">
+        <h3>Sally Face</h3>
+        <p>Jogo de suspense e mistério com história envolvente e enigmas desafiadores.</p>
+        <span>R$ 40,00</span>
+        <button onclick="adicionarAoCarrinho('Sally Face', 40)">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="card-produto">
+        <img src="img/alice-removebg-preview.png" alt="Spider Man 2">
+        <h3>Alice Madness Returns</h3>
+        <p>Jogo de ação e aventura com visual sombrio, combates intensos e uma versão distorcida do País das Maravilhas.</p>
+        <span>R$ 50,90</span>
+        <button onclick="adicionarAoCarrinho('Alice Madness Returns', 50.90)">Adicionar ao carrinho</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Loja Gamer - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
