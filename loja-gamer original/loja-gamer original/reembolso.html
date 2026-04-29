@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Reembolso e Devolução</title>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <header class="topo">
+  <div class="logo-area">
+    <h1>Painel Admin</h1>
+  </div>
+
+  <nav>
+    <a href="index-admin.html">Todos</a>
+    <a href="pedidoemprocessodeentrega.html">Em Processo</a>
+    <a href="pedidoparaentrega.html">Entrega</a>
+    <a href="pedidofinalizados.html">Finalizados</a>
+    <a href="reembolso.html">Reembolso</a>
+  </nav>
+</header>
+
+<div class="container">
+<h1>Reembolso / Devolução</h1>
+<div id="listaReembolso"></div>
+</div>
+
+<script>
+carregar("Reembolso/Devolução", "listaReembolso");
+
+function carregar(status, id){
+ let pedidos = JSON.parse(localStorage.getItem("todosPedidos")) || [];
+ let lista = document.getElementById(id);
+
+ let filtrados = pedidos.filter(p => p.status === status);
+
+ if(filtrados.length === 0){
+   lista.innerHTML = "<p>Nenhum pedido.</p>";
+   return;
+ }
+
+ filtrados.forEach((p,i)=>{
+   lista.innerHTML += `
+   <div class="pedido-card">
+     <h3>${p.cliente}</h3>
+     <p>${p.endereco}</p>
+     <p>${p.email}</p>
+     <p>Status: ${p.status}</p>
+   </div>`;
+ });
+}
+</script>
+
+</body>
+</html>

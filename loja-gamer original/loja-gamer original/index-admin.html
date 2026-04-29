@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Cyber Pixel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="topo">
+  <div class="logo-area">
+    <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" class="logo">
+    <h1>Admin Cyber Pixel</h1>
+  </div>
+
+  <nav>
+     <a href="index-admin.html">Todos</a>
+    <a href="pedidoemprocessodeentrega.html">Em Processo</a>
+    <a href="pedidoparaentrega.html">Entrega</a>
+    <a href="pedidofinalizados.html">Finalizados</a>
+    <a href="reembolso.html">Reembolso</a>
+
+    
+  </nav>
+</header>
+
+<main class="container">
+  <section class="pedidos-box">
+    <h2>Pedidos Recebidos</h2>
+
+    <button onclick="limparPedidosAdmin()" class="btn-secundario">
+      Limpar pedidos
+    </button>
+
+    <div id="listaAdminPedidos"></div>
+  </section>
+</main>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

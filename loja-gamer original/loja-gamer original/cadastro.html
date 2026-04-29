@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta - Cyber Pixel</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+
+<body class="login-body">
+
+  <div class="login-box">
+    <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo" class="logo-login">
+
+    <h1>Cyber Pixel</h1>
+    <h2>Criar Conta</h2>
+
+    <form id="formCadastro">
+      <input type="text" id="nomeCadastro" placeholder="Nome completo" required>
+      <input type="email" id="emailCadastro" placeholder="E-mail" required>
+      <input type="tel" id="telefoneCadastro" placeholder="Telefone" required>
+      <input type="password" id="senhaCadastro" placeholder="Senha" required>
+      <input type="password" id="confirmarSenha" placeholder="Confirmar senha" required>
+
+      <button type="submit">Criar conta</button>
+    </form>
+
+    <p class="mensagem" id="mensagemCadastro"></p>
+
+    <p style="margin-top: 15px;">
+      Já tem conta?
+      <a href="login.html" style="color:#42a5f5; font-weight:bold;">Fazer login</a>
+    </p>
+  </div>
+
+  <script src="js/cadastro.js"></script>
+
+</body>
+</html>

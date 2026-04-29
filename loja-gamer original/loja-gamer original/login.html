@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Loja Gamer</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="login-body">
+
+  <div class="login-box">
+    <img src="img/Gemini_Generated_Image_4simxg4simxg4sim.png" alt="Logo" class="logo-login">
+
+    <h1>Cyber Pixel</h1>
+    <h2>Entrar</h2>
+
+    <form id="formLogin">
+      <input type="text" id="loginUsuario" placeholder="Nome, e-mail ou telefone" required>
+      <input type="password" id="senhaLogin" placeholder="Digite sua senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <button onclick="window.location.href='cadastro.html'" class="btn-criar">
+      Criar Conta
+    </button>
+
+    <button type="button" id="btnEsqueciSenha" class="btn-esqueci">
+      Esqueci minha senha
+    </button>
+
+    <div id="recuperarSenhaBox" class="recuperar-senha-box">
+      <input type="email" id="emailRecuperar" placeholder="Digite seu e-mail cadastrado">
+      <input type="password" id="novaSenha" placeholder="Digite a nova senha">
+
+      <button type="button" id="btnTrocarSenha">
+        Enviar Código
+      </button>
+
+      <div id="areaCodigo" style="display:none; margin-top:10px;">
+        <input type="text" id="codigoDigitado" placeholder="Digite o código recebido">
+        <button type="button" onclick="confirmarCodigo()">
+          Confirmar Código
+        </button>
+      </div>
+    </div>
+
+    <p id="mensagemLogin" class="mensagem"></p>
+    <p id="mensagemSenha" class="mensagem"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("G-ifi0lC9qS6KcfVq");
+  </script>
+
+  <script src="js/login.js"></script>
+
+</body>
+</html>
